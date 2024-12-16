@@ -1,11 +1,11 @@
-function plot_eigenfaces_and_reconstructions()
+4function plot_eigenfaces_and_reconstructions()
     % Load the dataset and perform PCA
     [labels, train_data] = load_dataset_pca('att_faces/');
     
-    % Perform PCA with 200 principal components
+    % Perform PCA with 400 principal components
     [transformed_data, principal_components, mean_vector, cumulative_variance] = Principal_Component_Analysis(2, 400, train_data);
 
-    % Visualize the first four eigenfaces
+    % Visualize the eigenfaces
     figure;
     subplot(2,3,1), imshow(reshape(principal_components(:,1), [112,92]), []);
     title('1st Eigenface');
@@ -60,7 +60,7 @@ function plot_eigenfaces_and_reconstructions()
     xlabel('Number of Principal Components');
     ylabel('Reconstruction Loss (MSE)');
     title('Reconstruction Loss for Different Numbers of Principal Components');
-    grid on;  % Add grid for better visualization
+    grid on; 
 
     % Plot the cumulative variance
     figure;
@@ -70,7 +70,6 @@ function plot_eigenfaces_and_reconstructions()
     title('Cumulative Variance Explained by Principal Components');
     grid on; 
 end
-
 
 
 
