@@ -1,4 +1,4 @@
-function [transformed_data, principal_components, mean_vector] = Principal_Component_Analysis(method, num_components, input_data)
+function [transformed_data, principal_components, mean_vector, cumulative_variance] = Principal_Component_Analysis(method, num_components, input_data)
     % Perform Principal Component Analysis using Eigen decomposition or SVD
     % Args:
     %   method: Choose 1 for Eigen decomposition, 2 for SVD
@@ -32,15 +32,26 @@ function [transformed_data, principal_components, mean_vector] = Principal_Compo
         % Select the top 'num_components' principal components
         principal_components = principal_components(:, 1:num_components);
         transformed_data = principal_components' * centered_data; % Project data
-        
+            
+        % Calculate cumulative variance
+        total_variance = sum(sorted_eigen_values); % Total variance (sum of eigenvalues)
+        cumulative_variance = cumsum(sorted_eigen_values) / total_variance; % Cumulative variance explained by the components
+    
     elseif method == 2
         % Method 2: Singular Value Decomposition (SVD)
         [U, S, V] = svd(centered_data / (num_observations - 1), 'econ'); % Perform SVD
         principal_components = U(:, 1:num_components); % Retain top components
         transformed_data = principal_components' * centered_data; % Project data
+        % Calculate cumulative variance for SVD
+        singular_values = diag(S); % Singular values from SVD
+        explained_variance = singular_values.^2; % Explained variance is the square of the singular values
+        total_variance = sum(explained_variance); % Total variance
+        cumulative_variance = cumsum(explained_variance) / total_variance; % Cumulative variance explained by the components
     else
         error('Invalid method selected. Choose 1 for Eigen decomposition or 2 for SVD.');
     end
+
+    
     
 end
 
