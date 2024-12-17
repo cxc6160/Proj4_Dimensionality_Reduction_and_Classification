@@ -34,6 +34,7 @@ Run `main.m` to produce results.
 7. `load_datasets.m`
 8. `main.m`
 9. `att_faces` (image datasets folder)
+10. `load_dataset_pca.m`
 
 ## Some of the plots and results can be found in the [Artifacts](./Artifacts/) folder.
 

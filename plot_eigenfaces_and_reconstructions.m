@@ -1,4 +1,5 @@
 function plot_eigenfaces_and_reconstructions()
+function plot_eigenfaces_and_reconstructions()
     % Load the dataset and perform PCA
     [labels, train_data] = load_dataset_pca('att_faces/');
     
@@ -62,7 +63,7 @@ function plot_eigenfaces_and_reconstructions()
     title('Reconstruction Loss for Different Numbers of Principal Components');
     grid on; 
 
-    % Plot the cumulative variance
+    % Plot the total variance against the number of eigenfaces
     figure;
     plot(cumulative_variance(1:400), 'LineWidth', 2);
     xlabel('Number of Principal Components');
