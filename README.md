@@ -12,4 +12,5 @@
 7. `load_datasets.m`
 8. `main.m`
 9. `att_faces` (image datasets folder)
+10. `load_dataset_pca.m`
 
