@@ -1,4 +1,4 @@
-4function plot_eigenfaces_and_reconstructions()
+function plot_eigenfaces_and_reconstructions()
     % Load the dataset and perform PCA
     [labels, train_data] = load_dataset_pca('att_faces/');
     
@@ -35,7 +35,7 @@
     % Display the original image in the first position
     subplot(2,4,1);
     imshow(reshape(train_data(1,:), [112,92]), []);
-    title('Original Image');
+    title('Original Image','FontSize', 12);
     
     for i = 1:length(num_components_list)
         [transformed_data, principal_components, mean_vector] = Principal_Component_Analysis(2, num_components_list(i), train_data);
@@ -51,7 +51,7 @@
 
         subplot(2,4,i+1);
         imshow(reshape(reconstructed_data(:,1), [112,92]), []);
-        title(['Reconstructed with ', num2str(num_components_list(i)), ' PCs']);
+        title(['Reconstructed: ', num2str(num_components_list(i)), ' PCs'], 'FontSize', 12);
     end
 
     % Plot the reconstruction loss for different numbers of principal components
@@ -69,7 +69,10 @@
     ylabel('Cumulative Variance Explained');
     title('Cumulative Variance Explained by Principal Components');
     grid on; 
+
+    % Save the reconstruction losses to a CSV file
+    results = [num_components_list', reconstruction_losses'];
+    csv_filename = 'Artifacts/reconstruction_losses.csv';
+    writematrix(results, csv_filename);
+    disp(['Reconstruction losses saved to ', csv_filename]);
 end
-
-
-

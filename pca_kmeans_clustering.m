@@ -35,7 +35,3 @@ function [cluster_indices] = pca_kmeans_clustering(task)
         cluster_indices = kmeans(projected_testing_data', num_clusters);
     end
 end
-
-
-
-
