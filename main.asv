@@ -67,6 +67,6 @@ end
 function indices = execute_kmeans_clustering(task_number, start_message, end_message)
     % Executes K-means clustering tasks.
     disp(start_message);
-    indices = classification_functions(task_number, 'kmeans_clustering');
+    indices = pca_kmeans_clustering(task_number, 'kmeans_clustering'); % Now sourced from classification_functions.m
     disp(end_message);
 end

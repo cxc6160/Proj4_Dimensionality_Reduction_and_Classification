@@ -57,8 +57,4 @@ function [transformed_data, principal_components, mean_vector, cumulative_varian
         error('Invalid method selected. Choose 1 for Eigen decomposition or 2 for SVD.');
     end
 
-    % Display results
-    fprintf('Reduced dimensions: %d principal components retained\n', num_components);
-    fprintf('Cumulative variance explained with %d components: %.4f%%\n', num_components, cumulative_variance(num_components) * 100);
-    fprintf('Total variance captured: %.2f%%\n', cumulative_variance(end) * 100);
 end

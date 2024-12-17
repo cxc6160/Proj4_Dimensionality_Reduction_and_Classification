@@ -23,20 +23,14 @@ Run `main.m` to produce results.
     main;
 ```
 
-### Ensure the following files and folders are in the working directory:
+## Results 
+Some of the plots and results can be found in the [Artifacts](./Artifacts/) folder.
 
-1. `plot_eigenfaces_and_reconstructions.m`
-2. `basis_expansion.m`
-3. `classification.m`
-4. `pca_knn_classification.m`
-5. `pca_kmeans_clustering.m`
-6. `Principal_Component_Analysis.m`
-7. `load_datasets.m`
-8. `main.m`
-9. `att_faces` (image datasets folder)
-10. `load_dataset_pca.m`
+## Docs
+You can find our report and presentation slides inside [Docs](./Docs/) folder. 
 
-## Some of the plots and results can be found in the [Artifacts](./Artifacts/) folder.
+## Python based Implementation of PCA
+ We have also implemented the PCA part to reduce the dimensionality and visualize the images with different principal components using python which is inside the [Python based PCA Implementation](./Python%20based%20PCA%20Implementation/) folder. 
 
 ## Authors
 1. Image Adhikari

@@ -1,5 +1,4 @@
 function plot_eigenfaces_and_reconstructions()
-function plot_eigenfaces_and_reconstructions()
     % Load the dataset and perform PCA
     [labels, train_data] = load_dataset_pca('att_faces/');
     
