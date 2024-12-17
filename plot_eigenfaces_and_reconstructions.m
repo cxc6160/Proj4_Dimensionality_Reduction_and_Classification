@@ -1,4 +1,4 @@
-4function plot_eigenfaces_and_reconstructions()
+function plot_eigenfaces_and_reconstructions()
     % Load the dataset and perform PCA
     [labels, train_data] = load_dataset_pca('att_faces/');
     
@@ -62,13 +62,27 @@
     title('Reconstruction Loss for Different Numbers of Principal Components');
     grid on; 
 
-    % Plot the cumulative variance
+    % Plot the total variance against the number of eigenfaces
     figure;
-    plot(cumulative_variance(1:400), 'LineWidth', 2);
-    xlabel('Number of Principal Components');
-    ylabel('Cumulative Variance Explained');
-    title('Cumulative Variance Explained by Principal Components');
-    grid on; 
+
+    % Dynamically adjust x-axis limit based on available components
+    num_eigenfaces = length(cumulative_variance);
+    x_axis = 1:num_eigenfaces;
+
+    % Total variance curve
+    plot(x_axis, cumulative_variance, 'LineWidth', 2);
+
+    % Fix x and y limits
+    xlim([0, num_eigenfaces]); % Automatically adjust x-axis to the actual number of components
+    ylim([0, 1]); % Fix y-axis to range from 0 to 1
+
+    % Labels and title
+    xlabel('Number of Eigenfaces');
+    ylabel('Total Variance (0 to 1)');
+    title('Total Variance Against Number of Eigenfaces');
+    grid on;
+
+
 end
 
 
